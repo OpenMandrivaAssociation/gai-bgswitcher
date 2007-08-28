@@ -61,7 +61,6 @@ Terminal=false
 Type=Application
 Categories=X-MandrivaLinux-Multimedia-Graphics;Graphics;Viewer;
 StartupNotify=true
-Encoding=UTF-8
 EOF
 
 
