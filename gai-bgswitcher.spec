@@ -1,6 +1,6 @@
 %define name gai-bgswitcher
 %define version 0.3
-%define release %mkrel 8
+%define release %mkrel 9
 
 Name: %name
 Summary: A GAI applet for switching background
@@ -14,6 +14,7 @@ Source10:   %{name}-16.png
 Source11:   %{name}-32.png
 Source12:   %{name}-48.png
 Patch: gai-album-0.6-rox-install.patch
+Patch1: gai-bgswitcher-0.3-format-strings.patch
 BuildRoot: %{_tmppath}/build-root-%{name}
 BuildRequires: libgai-devel >= 0.5
 
@@ -28,6 +29,7 @@ supported soon.
 %prep
 %setup -q
 %patch -p1
+%patch1 -p1
 
 %build
 %configure2_5x
