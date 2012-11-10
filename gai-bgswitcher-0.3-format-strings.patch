@@ -1,0 +1,30 @@
+diff -p -up gai-bgswitcher-0.3/gai-bgswitcher.c~ gai-bgswitcher-0.3/gai-bgswitcher.c
+--- gai-bgswitcher-0.3/gai-bgswitcher.c~	2004-04-07 18:48:26.000000000 +0200
++++ gai-bgswitcher-0.3/gai-bgswitcher.c	2009-07-23 11:28:16.000000000 +0200
+@@ -170,7 +170,7 @@ void get_image_array(void)
+ 	gdir_images=g_dir_open(image_dir,0,NULL);
+     }
+ 
+-    g_file=g_strdup_printf(g_dir_read_name(gdir_images));
++    g_file=g_strdup_printf("%s", g_dir_read_name(gdir_images));
+     while(g_file!=NULL){
+ 	if (g_str_has_suffix(g_file,".png") ||	g_str_has_suffix(g_file,".PNG") ||
+ 	    g_str_has_suffix(g_file,".gif") || g_str_has_suffix(g_file,".GIF") ||
+@@ -183,7 +183,7 @@ void get_image_array(void)
+ 	    counter++;			
+ 	}
+ 	g_free(g_file);
+-	g_file=g_strdup_printf(g_dir_read_name(gdir_images));
++	g_file=g_strdup_printf("%s", g_dir_read_name(gdir_images));
+     }
+ 
+     /* if they chose an empty directory, just show our app icon */
+@@ -192,7 +192,7 @@ void get_image_array(void)
+ 	g_free(image_dir);
+ 	image_dir = g_strdup_printf("%s",DEFAULT_IMAGE_DIR);
+ 	gdir_images=g_dir_open(image_dir,0,NULL);
+-	g_file=g_strdup_printf(g_dir_read_name(gdir_images));
++	g_file=g_strdup_printf("%s", g_dir_read_name(gdir_images));
+ 	gtk_list_store_append (image_store, &iter);
+ 	gtk_list_store_set (image_store, &iter, FILENAME, g_file, -1);
+ 	counter=1;
